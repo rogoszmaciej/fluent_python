@@ -10,14 +10,16 @@ class Vector:
         self.y = y
 
     def __repr__(self) -> str:
-        return f"Vector({self.x}, {self.y}"
+        return f"Vector({self.x!r}, {self.y!r})"
 
     def __abs__(self) -> int:
         return hypot(self.x, self.y)
 
-    def __add__(self, vector: "Vector") -> None:
+    def __add__(self, vector: "Vector") -> "Vector":
         self.x += vector.x
         self.y += vector.y
+
+        return self
 
     def __bool__(self) -> bool:
         return bool(abs(self))

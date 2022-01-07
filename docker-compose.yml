@@ -1,12 +1,12 @@
 version: "3.8"
 
 networks:
-  dev:
+  platform:
     driver: bridge
     ipam:
       driver: default
       config:
-        - subnet: 10.5.0.0/24
+        - subnet: 10.6.0.0/24
 
 services:
   python:
@@ -15,8 +15,8 @@ services:
       context: .
       dockerfile: Dockerfile
     networks:
-      dev:
-        ipv4_address: 10.5.0.10
+      platform:
+        ipv4_address: 10.6.0.10
     ports:
       - 8000:8000
     restart: always

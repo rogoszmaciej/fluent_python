@@ -19,7 +19,7 @@ def test_first_and_last_card_in_deck_are_retrieved(deck):
     last_card = deck[-1]
 
     assert first_card.rank == "2"
-    assert first_card.suit == "diamonds"
+    assert first_card.suit == "spades"
     assert last_card.rank == "A"
     assert last_card.suit == "hearts"
 
@@ -56,4 +56,11 @@ def test_checking_if_card_is_in_deck_is_evaluated(deck):
 
 
 def test_deck_is_sorted(deck):
+    ranks = [str(n) for n in range(2, 11)] + list("JQKA")
+    suits = ["spades", "clubs", "diamonds", "hearts"]
+    cards = [Card(rank=rank, suit=suit) for rank in ranks for suit in suits]
+
     deck.sort()
+
+    for deck_card, card in zip(deck, cards):
+        assert deck_card == card

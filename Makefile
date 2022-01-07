@@ -6,6 +6,9 @@ update-requirements:
 	pip-compile -U requirements.in
 	pip-compile -U requirements-test.in
 
+black:
+	python3 -m black ./
+
 ######################
 # Services
 ######################
