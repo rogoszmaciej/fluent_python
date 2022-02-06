@@ -68,5 +68,10 @@ def test_sets_intersection():
     assert occurences == set(["test1@example.com", "test2@example.com"]) == occurences_2
 
 
-def test_set_literals():
-    pass
+def test_set_literals_and_comprehensions():
+    set_lit = {1, 2, 3}
+    test = sorted([i for i in range(0, 100) if i % 20 == 0 and i > 0])
+    set_compr = {i for i in test}
+
+    assert set_lit == set([1, 2, 3])
+    assert set_compr == set([40, 80, 20, 60])
